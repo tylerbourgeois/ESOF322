@@ -1,0 +1,94 @@
+public class Company {
+	public String name;
+	public Address headquarters;
+	public VehicleRentalService service;
+	public Employee[] employee;
+	public Customer customer[];
+	public Car[] car;
+	public Truck[] truck;
+	public Motorbike[] motorbike;
+}
+
+public interface Rentable {
+	public rent();
+}
+
+public abstract class Vehicle implements Rentable {
+	...
+}
+
+public class Truck extends Vehicle {
+	public UnlimitedNatural weight;
+	public UnlimitedNatural power;
+	public String manufacturer;
+	public String regNo;
+	public Company company;
+}
+
+public class Car extends Vehicle {
+	public CarKind kind;
+	public UnlimitedNatural noSeats;
+	public UnlimitedNatural power;
+	public String manufacturer;
+	public String regNo;
+	public Company company;
+}
+
+public class Motorbike extends Vehicle {
+	public MbKind kind;
+	public UnlimitedNatural cylinderCap;
+	public UnlimitedNatural power;
+	public String manufacturer;
+	public String regNo;
+	public Company company;
+}
+
+public class VehicleRentalService extends Service {
+	public Company company;
+	public Vehicle vehicle;
+	
+	offerCar();
+	offerMotorBike();
+	offerTruck();
+}
+
+public abstract class Service {
+	public Customer customer;
+}
+
+public abstract class Person {
+	public String name;
+	public String email;
+	public Address[] address;
+}
+
+public class Address {
+	public Person person;
+	public String street;
+	public String postalCode;
+	public String city;
+}
+
+public class Employee extends Person {
+	public Company company;
+}
+
+public class Customer extends Person {
+	public Company company;
+	public BankAccount bankAccount;
+}
+
+public class Subcontractor extends Employee, Customer{
+	...
+}
+
+public class BankAccount {
+	public Customer customer;
+	public UnlimitedNatural number;
+	public String depositer;
+	public String bank;
+}
+
+
+
+
